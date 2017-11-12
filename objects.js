@@ -12,11 +12,9 @@ var rental = {
     document.getElementById("econAvail").innerHTML = --this.economyCars;
  },
  bookedEcon: function() {
-     console.log("booked econ")
     ++this.economyCarsBooked;
  },
  bookedMid: function() {
-    console.log("booked mid");
     ++this.midsizeCarsBooked;
  }
  
