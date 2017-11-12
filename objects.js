@@ -6,27 +6,29 @@ var rental = {
  midsizeCarsBooked: 0,
  carClass: ["Economy", "Midsize"],
  rentMid: function() {
-    document.getElementById("midszAvail").innerHTML = --this.midsizeCars;
+    document.getElementById("midsizeAvail").innerHTML = --this.midsizeCars;
  },
  rentEcon: function() {
     document.getElementById("econAvail").innerHTML = --this.economyCars;
  },
  bookedEcon: function() {
-    document.getElementById("econAvail").innerHTML = ++this.economyCarsBooked;
+     console.log("booked econ")
+    ++this.economyCarsBooked;
  },
  bookedMid: function() {
-    document.getElementById("econAvail").innerHTML = ++this.midsizeCarsBooked;
+    console.log("booked mid");
+    ++this.midsizeCarsBooked;
  }
  
 };
 
 function updateAvail() {
-    document.getElementById("midszAvail").innerHTML = rental.midsizeCars;
+    document.getElementById("midsizeAvail").innerHTML = rental.midsizeCars;
     document.getElementById("econAvail").innerHTML = rental.economyCars;
 }
 
 function staticValues() {
     document.getElementById("name").innerHTML = rental.name;
     document.getElementById("econ").innerHTML = rental.carClass[0];
-    document.getElementById("midsz").innerHTML = rental.carClass[1];
+    document.getElementById("midsize").innerHTML = rental.carClass[1];
 }
