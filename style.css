@@ -1,0 +1,28 @@
+fieldset{
+    border: 2px solid;
+    width: 50vw;
+}
+
+label{
+    display: inline-block;
+    width: 170px;
+}
+
+input:invalid{
+    background-color: #f00;
+    color: white;
+}
+
+input:valid{
+    border: 1px solid black;
+}
+
+::-webkit-input-placeholder {
+    color: #fff;
+}
+
+#formButton{
+    border-radius: 5px;
+    background-color: #fff;
+    
+}

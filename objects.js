@@ -1,10 +1,19 @@
 var rental = {
- name: "Enterprise Rent A Car",
- economyCars: 90,
- economyCarsBooked: 0,
- midsizeCars: 180,
- midsizeCarsBooked: 0,
- carClass: ["Economy", "Midsize"],
+ "name": "Enterprise Rent A Car",
+ "economyCars": 90,
+ "economyCarsBooked": 0,
+ "midsizeCars": 180,
+ "midsizeCarsBooked": 0,
+ "carClass": [
+     {
+         "type": "Economy",
+         "price": "$30 per day"
+     },
+     {
+         "type": "Midsize",
+         "price": "$40 per day"
+     }
+     ],
  rentMid: function() {
     document.getElementById("midsizeAvail").innerHTML = --this.midsizeCars;
  },
@@ -20,13 +29,54 @@ var rental = {
  
 };
 
-function updateAvail() {
-    document.getElementById("midsizeAvail").innerHTML = rental.midsizeCars;
+var renter = {
+    "customer": [
+        {
+            "name":"",
+            "car":""
+        }
+        ]
+};
+
+function updatedEconInfo() {
+    var updatedEconomyInfo = document.getElementById("carTypes").value="economyUpdate";
     document.getElementById("econAvail").innerHTML = rental.economyCars;
+    document.getElementById("econ").innerHTML = rental.carClass[0].type;
+    document.getElementById("econPrice").innerHTML = rental.carClass[0].price;
+    document.getElementById("midsizeAvail").innerHTML = "";
+    document.getElementById("midsize").innerHTML = "";
+    document.getElementById("midsizePrice").innerHTML = "";
 }
 
-function staticValues() {
-    document.getElementById("name").innerHTML = rental.name;
-    document.getElementById("econ").innerHTML = rental.carClass[0];
-    document.getElementById("midsize").innerHTML = rental.carClass[1];
+function updatedMidInfo() {
+    var updatedMidsizeInfo = document.getElementById("carTypes").value="midsizeUpdate";
+    document.getElementById("midsizeAvail").innerHTML = rental.midsizeCars;
+    document.getElementById("midsize").innerHTML = rental.carClass[1].type;
+    document.getElementById("midsizePrice").innerHTML = rental.carClass[1].price;
+    document.getElementById("econAvail").innerHTML = "";
+    document.getElementById("econ").innerHTML = "";
+    document.getElementById("econPrice").innerHTML = "";
 }
+
+function showNothing() {
+    document.getElementById("midsizeAvail").innerHTML = "";
+    document.getElementById("midsize").innerHTML = "";
+    document.getElementById("midsizePrice").innerHTML = "";
+    document.getElementById("econAvail").innerHTML = "";
+    document.getElementById("econ").innerHTML = "";
+    document.getElementById("econPrice").innerHTML = ""; 
+}
+
+function update() {
+    if (document.getElementById("carTypes").value === "economyUpdate") {
+        updatedEconInfo();
+    } else if (document.getElementById("carTypes").value === "midsizeUpdate") {
+        updatedMidInfo();
+    } else {
+        showNothing();
+    }
+}
+
+// function carRented() {
+    
+// }
