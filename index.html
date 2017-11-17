@@ -59,12 +59,6 @@
 	<p id="midsizePrice">
 	</p>
 
-
-	<!--<div>-->
-	<!--	<button onclick="updateAvail()">Update Availability</button> <button onclick="rental.rentEcon(); rental.bookedEcon()">Rent 1 Economy Car</button> <button onclick="rental.rentMid(); rental.bookedMid()">Rent 1 Midsize Car</button>-->
-	<!--</div>-->
-
-
 	<div>
 		<form id="myForm" name="myForm">
 			<fieldset>
@@ -76,7 +70,7 @@
 
 
 				<div>
-					<label>Car Type:</label> <select id="carTypes" onchange="update()">
+					<label>Car Type:</label> <select id="carTypes" onchange="update()" required>
 						<option value="blank">
 							Please Select an Option
 						</option>
@@ -94,17 +88,17 @@
 
 				<div>
 					<label></label><br>
-					<input id="formButton" type="submit" value="Rent Car" onclick="carRented">
+					<input id="formButton" type="submit" value="Rent Car" onclick="carRented()">
 				</div>
 			</fieldset>
 		</form>
+		
+		<p id="thanks">
+		    
+		</p>
 	</div>
 	<script src="objects.js">
 	</script><br>
-
-
-	<p id="results">
-	</p>
 	<script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
