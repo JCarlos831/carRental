@@ -85,6 +85,8 @@ function carRented() {
         alert("Thanks for your reservation :)");
     } else if (document.getElementById("renterName").value  && document.getElementById("carTypes").value === "midsizeUpdate") {
         rental.rentMid(); rental.bookedMid();
+        renter.customer[1].name;
+        renter.customer[1].car;
         alert("Thanks for your reservation :)");
     } else {
         alert("Are you sure you're not missing a field?");
