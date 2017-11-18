@@ -75,13 +75,21 @@ function update() {
 function carRented() {
     if (document.getElementById("renterName").value && document.getElementById("carTypes").value === "economyUpdate") {
         console.log(rental.rentEcon());console.log(rental.bookedEcon());
-        console.log(renter.push(document.getElementById("renterName").value));
-        console.log(renter.push(document.getElementById("carTypes").value === "economyUpdate"));
+        var renter = [];
+        var customer = {
+            "name": document.getElementById("renterName").value,
+            "car": document.getElementById("carTypes")
+        };
+        renter.push(customer);
         alert("Thanks for your reservation :)");
     } else if (document.getElementById("renterName").value  && document.getElementById("carTypes").value === "midsizeUpdate") {
         rental.rentMid(); rental.bookedMid();
-        renter.customer[1].name;
-        renter.customer[1].car;
+        var renter = [];
+        var customer = {
+            "name": document.getElementById("renterName").value,
+            "car": document.getElementById("carTypes")
+        };
+        renter.push(customer);
         alert("Thanks for your reservation :)");
     } else {
         alert("Are you sure you're not missing a field?");
