@@ -30,12 +30,7 @@ var rental = {
 };
 
 var renter = {
-    "customer": [
-        {
-            "name":"",
-            "car":""
-        }
-        ]
+
 };
 
 function updatedEconInfo() {
@@ -80,8 +75,8 @@ function update() {
 function carRented() {
     if (document.getElementById("renterName").value && document.getElementById("carTypes").value === "economyUpdate") {
         console.log(rental.rentEcon());console.log(rental.bookedEcon());
-        console.log(renter.customer[0].name)
-        console.log(renter.customer[0].car)
+        console.log(renter.push(document.getElementById("renterName").value));
+        console.log(renter.push(document.getElementById("carTypes").value === "economyUpdate"));
         alert("Thanks for your reservation :)");
     } else if (document.getElementById("renterName").value  && document.getElementById("carTypes").value === "midsizeUpdate") {
         rental.rentMid(); rental.bookedMid();
