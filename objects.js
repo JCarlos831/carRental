@@ -33,7 +33,7 @@ var renter = [];
 var customer = {};
 
 function updatedEconInfo() {
-    var updatedEconomyInfo = document.getElementById("carTypes").value="economyUpdate";
+    var updatedEconomyInfo = document.getElementById("carTypes").value="Economy";
     document.getElementById("econAvail").innerHTML = rental.economyCars;
     document.getElementById("econ").innerHTML = rental.carClass[0].type;
     document.getElementById("econPrice").innerHTML = rental.carClass[0].price;
@@ -43,7 +43,7 @@ function updatedEconInfo() {
 }
 
 function updatedMidInfo() {
-    var updatedMidsizeInfo = document.getElementById("carTypes").value="midsizeUpdate";
+    var updatedMidsizeInfo = document.getElementById("carTypes").value="Midsize";
     document.getElementById("midsizeAvail").innerHTML = rental.midsizeCars;
     document.getElementById("midsize").innerHTML = rental.carClass[1].type;
     document.getElementById("midsizePrice").innerHTML = rental.carClass[1].price;
@@ -62,9 +62,9 @@ function showNothing() {
 }
 
 function update() {
-    if (document.getElementById("carTypes").value === "economyUpdate") {
+    if (document.getElementById("carTypes").value === "Economy") {
         updatedEconInfo();
-    } else if (document.getElementById("carTypes").value === "midsizeUpdate") {
+    } else if (document.getElementById("carTypes").value === "Midsize") {
         updatedMidInfo();
     } else {
         showNothing();
@@ -72,26 +72,25 @@ function update() {
 }
 
 function carRented() {
-    if (document.getElementById("renterName").value && document.getElementById("carTypes").value === "economyUpdate") {
-        console.log(rental.rentEcon());console.log(rental.bookedEcon());
-        renter = [];
+    if (document.getElementById("renterName").value && document.getElementById("carTypes").value === "Economy") {
+        rental.rentEcon();rental.bookedEcon();
         customer = {
             "name": document.getElementById("renterName").value,
-            "car": document.getElementById("carTypes").value
+            "car": document.getElementById("economySelection").value
         };
         renter.push(customer);
         console.log(renter);
         alert("Thanks for your reservation :)");
-    } else if (document.getElementById("renterName").value  && document.getElementById("carTypes").value === "midsizeUpdate") {
+    } else if (document.getElementById("renterName").value && document.getElementById("carTypes").value === "Midsize") {
         rental.rentMid(); rental.bookedMid();
-        renter = [];
         customer = {
             "name": document.getElementById("renterName").value,
-            "car": document.getElementById("carTypes")
+            "car": document.getElementById("midsizeSelection").value
         };
         renter.push(customer);
+        console.log(renter);
         alert("Thanks for your reservation :)");
     } else {
-        alert("Are you sure you're not missing a field?");
+        alert("Please fill out all fields and make a selection");
     }
 }
