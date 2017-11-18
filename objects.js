@@ -29,9 +29,8 @@ var rental = {
  
 };
 
-var renter = {
-
-};
+var renter = [];
+var customer = {};
 
 function updatedEconInfo() {
     var updatedEconomyInfo = document.getElementById("carTypes").value="economyUpdate";
@@ -75,21 +74,21 @@ function update() {
 function carRented() {
     if (document.getElementById("renterName").value && document.getElementById("carTypes").value === "economyUpdate") {
         console.log(rental.rentEcon());console.log(rental.bookedEcon());
-        var renter = [];
-        var customer = {
+        renter = [];
+        customer = {
             "name": document.getElementById("renterName").value,
-            "car": document.getElementById("carTypes")
+            "car": document.getElementById("carTypes").value
         };
         renter.push(customer);
         alert("Thanks for your reservation :)");
     } else if (document.getElementById("renterName").value  && document.getElementById("carTypes").value === "midsizeUpdate") {
         rental.rentMid(); rental.bookedMid();
-        var renter = [];
-        var customer = {
+        renter = [];
+        customer = {
             "name": document.getElementById("renterName").value,
             "car": document.getElementById("carTypes")
         };
-        renter.push(customer);
+        console.log(renter.push(customer));
         alert("Thanks for your reservation :)");
     } else {
         alert("Are you sure you're not missing a field?");
