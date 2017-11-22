@@ -120,7 +120,7 @@ for(var i = 0; i < rental.carClass.length; i++) {
      carBtn.setAttribute("type", "radio");
      carBtn.setAttribute("name", "carType");
      carBtn.setAttribute("value", i);
-     carBtn.setAttribute("id", "room" + i);
+     carBtn.setAttribute("id", "car" + i);
      carBtn.setAttribute("onclick", "carInfo(" + i +")");
      console.log("stop");
      var carLbl = document.createElement("LABEL");
@@ -131,14 +131,6 @@ for(var i = 0; i < rental.carClass.length; i++) {
 
     document.getElementById("carReservation").onsubmit = function(event) {
     event.preventDefault();
-
-    var firstNameSelected = "";
-    var lastNameSelected = "";
-    
-    if (firstNameSelected === ""  && lastNameSelected === "") {
-    alert("Please fill out first name");
-    return;
-    }
     
     if(!document.getElementById("confirmation").checked) {
         alert("Please agree to Terms and Conditions");
@@ -147,6 +139,8 @@ for(var i = 0; i < rental.carClass.length; i++) {
     
     var radios = document.getElementsByName("carType");
     var carSelected = "";
+    var firstNameSelected = "";
+    var lastNameSelected = "";
     
     for(var i = 0; i < radios.length; i++) {
         if(radios[i].checked) {
@@ -155,10 +149,24 @@ for(var i = 0; i < rental.carClass.length; i++) {
         }
     }
     
+    if (firstNameSelected === ""  && lastNameSelected === "") {
+        alert("Please fill out name");
+        return;
+    }
+        
+    // if (lastNameSelected === "") {
+    // alert("Please fill out last name");
+    // return;
+    // }
+    
     if (carSelected === "") {
         alert("Please choose a car type");
         return;
     }
     alert("Thank you for your reservation!");
+    // console.log(rental.rentEcon());
+    // console.log(rental.rentMid());
+    // console.log(rental.bookedEcon());
+    // console.log(rental.bookedMid());
     
 };
