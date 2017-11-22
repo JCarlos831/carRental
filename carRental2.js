@@ -132,6 +132,14 @@ for(var i = 0; i < rental.carClass.length; i++) {
     document.getElementById("carReservation").onsubmit = function(event) {
     event.preventDefault();
 
+    var firstNameSelected = "";
+    var lastNameSelected = "";
+    
+    if (firstNameSelected === ""  && lastNameSelected === "") {
+    alert("Please fill out first name");
+    return;
+    }
+    
     if(!document.getElementById("confirmation").checked) {
         alert("Please agree to Terms and Conditions");
         return;
@@ -139,6 +147,7 @@ for(var i = 0; i < rental.carClass.length; i++) {
     
     var radios = document.getElementsByName("carType");
     var carSelected = "";
+    
     for(var i = 0; i < radios.length; i++) {
         if(radios[i].checked) {
             carSelected = radios[i].value;
@@ -151,8 +160,5 @@ for(var i = 0; i < rental.carClass.length; i++) {
         return;
     }
     alert("Thank you for your reservation!");
-    
-    
-    
     
 };
