@@ -105,6 +105,15 @@ function carInfo(car) {
      document.getElementById("price").innerHTML = rental.carClass[car].price;
 }
 
+var firstName = document.createElement("INPUT");
+firstName.setAttribute("type", "text");
+firstName.setAttribute("placeholder", "First Name");
+var lastName = document.createElement("INPUT");
+lastName.setAttribute("type", "text");
+lastName.setAttribute("placeholder", "Last Name");
+document.getElementById("customerName").appendChild(firstName);
+document.getElementById("customerName").appendChild(lastName);
+
 for(var i = 0; i < rental.carClass.length; i++) {
      console.log("start");
      var carBtn = document.createElement("INPUT");
@@ -118,15 +127,31 @@ for(var i = 0; i < rental.carClass.length; i++) {
      carLbl.innerHTML = rental.carClass[i].type;
      document.getElementById("radialSection").appendChild(carBtn);
      document.getElementById("radialSection").appendChild(carLbl);
-}
+}    
 
-var radios = document.getElementById("carReservation").onsubmit = function(event) {
+    document.getElementById("carReservation").onsubmit = function(event) {
     event.preventDefault();
-    
+
     if(!document.getElementById("confirmation").checked) {
         alert("Please agree to Terms and Conditions");
         return;
     }
+    
+    var radios = document.getElementsByName("carType");
+    var carSelected = "";
+    for(var i = 0; i < radios.length; i++) {
+        if(radios[i].checked) {
+            carSelected = radios[i].value;
+            break;
+        }
+    }
+    
+    if (carSelected === "") {
+        alert("Please choose a car type");
+        return;
+    }
+    alert("Thank you for your reservation!");
+    
     
     
     
