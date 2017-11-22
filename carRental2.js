@@ -120,3 +120,14 @@ for(var i = 0; i < rental.carClass.length; i++) {
      document.getElementById("radialSection").appendChild(carLbl);
 }
 
+var radios = document.getElementById("carReservation").onsubmit = function(event) {
+    event.preventDefault();
+    
+    if(!document.getElementById("confirmation").checked) {
+        alert("Please agree to Terms and Conditions");
+        return;
+    }
+    
+    
+    
+};
