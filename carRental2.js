@@ -1,32 +1,34 @@
 var rental = {
  "name": "Enterprise Rent A Car",
- "economyCars": 90,
+//  "economyCars": 90,
  "economyCarsBooked": 0,
- "midsizeCars": 180,
+//  "midsizeCars": 180,
  "midsizeCarsBooked": 0,
  "carClass": [
      {
          type: "Economy",
          price: "$30 per day",
-         available: 90
+         available: 90,
+         booked: 0
      },
      {
          type: "Midsize",
          price: "$40 per day",
-         available: 180
+         available: 180,
+         booked: 0
      }
      ],
  rentMid: function() {
-    document.getElementById("midsizeAvail").innerHTML = --this.midsizeCars;
+    document.getElementById("available").innerHTML = --this.carClass[1].available;
  },
  rentEcon: function() {
-    document.getElementById("econAvail").innerHTML = --this.economyCars;
+    document.getElementById("available").innerHTML = --this.carClass[0].available;
  },
  bookedEcon: function() {
-    ++this.economyCarsBooked;
+    ++this.carClass[0].booked;
  },
  bookedMid: function() {
-    ++this.midsizeCarsBooked;
+    ++this.carClass[1].booked;
  }
 
 };
@@ -117,14 +119,14 @@ document.getElementById("customerName").appendChild(firstName);
 document.getElementById("customerName").appendChild(lastName);
 
 for(var i = 0; i < rental.carClass.length; i++) {
-     console.log("start");
+    //  console.log("start");
      var carBtn = document.createElement("INPUT");
      carBtn.setAttribute("type", "radio");
      carBtn.setAttribute("name", "carType");
      carBtn.setAttribute("value", i);
      carBtn.setAttribute("id", "car" + i);
      carBtn.setAttribute("onclick", "carInfo(" + i +")");
-     console.log("stop");
+    //  console.log("stop");
      var carLbl = document.createElement("LABEL");
      carLbl.innerHTML = rental.carClass[i].type;
      document.getElementById("radialSection").appendChild(carBtn);
@@ -161,9 +163,6 @@ for(var i = 0; i < rental.carClass.length; i++) {
             return;
         }
     
-    
-    
-    
     for(var i = 0; i < radios.length; i++) {
         if(radios[i].checked) {
             carSelected = radios[i].value;
@@ -177,9 +176,9 @@ for(var i = 0; i < rental.carClass.length; i++) {
     }
     
     alert("Thank you for your reservation!");
-    // console.log(rental.rentEcon());
-    // console.log(rental.rentMid());
-    // console.log(rental.bookedEcon());
-    // console.log(rental.bookedMid());
+    console.log(rental.rentEcon());
+    console.log(rental.rentMid());
+    console.log(rental.bookedEcon());
+    console.log(rental.bookedMid());
     
 };
